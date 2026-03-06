@@ -295,8 +295,6 @@ Zero infrastructure — no setup required. Doesn't support concurrent writes or 
 
 ## What to Build Next
 
-> Space intentionally left for additional items.
-
 **1. Agent  persona builder**
 Different agents to deal with different customers based on their previous records ie firm agents, kind agents.
 
