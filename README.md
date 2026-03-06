@@ -302,14 +302,16 @@ Different agents to deal with different customers based on their previous record
 Query `calls_log.csv` to surface per-agent trends across sessions: compliance improving, empathy flat, average score by persona type. Generate weekly coaching reports automatically. The CSV schema is already structured for this.
 
 
-**6. Proper FDCPA compliance rule engine**
+**3. Proper FDCPA compliance rule engine**
 Replace keyword-based Mini-Miranda detection with a structured rule engine: timezone-aware permitted-hour checking, implied legal threat detection via semantic similarity, third-party disclosure detection, cease-communication flag tracking. This can be done with set of instructions that will be loaded with each ai agents. 
 
-**7. Async parallel LLM calls**
+**4. Async parallel LLM calls**
 Run assist analysis concurrently with customer TTS synthesis rather than sequentially. Saves ~1–2s per turn — meaningful across a 10-turn call.Also this helps to create summary and insights faster also we can call another llm call to raise an issue to the superviser or another call to llm to fact check with database about credits recieved or not 
 
-**7. Prebuilt scenario cases**
+**5. Prebuilt scenario cases**
 The agent has an access to a vector db with previous case files on how it dealt with certain type of customers, what language  what script it used and use that as an example and guide to deal with new customers. This can also help a clear path on how to direct the call based on sitatuation rather that general one  
 
+**6. Domain Knowledge**
+Vector Databae of domain knowledge and set of instructions that needs to be followed by agents
 ---
 
