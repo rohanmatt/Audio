@@ -1,17 +1,5 @@
 """
-app.py — Whispa Live Call Simulator
-Each turn streams step-by-step to the screen:
-  Agent line appears → agent audio plays → customer line appears → customer audio plays → assist updates
 
-FIX: Audio now plays reliably on every turn by:
-  1. Using a globally unique audio ID (turn_count + role + timestamp) so the DOM element is always brand-new
-  2. Injecting JS that waits for the element to be ready, then calls .load() + .play()
-  3. Using components.html() for audio iframes so Streamlit cannot diff/skip re-rendering them
-
-Customer hang-up:
-  ai_customer.get_reply() prefixes its response with [CALL_ENDED] when the persona
-  ends the call. run_turn_live() detects this, plays the final audio, then triggers
-  the post-call summary — no further turns are allowed.
 """
 
 import os
@@ -586,12 +574,12 @@ elif st.session_state.screen == "call":
         st.markdown('<div style="font-family:IBM Plex Mono,monospace;font-size:9px;letter-spacing:.1em;color:#3a4560;text-transform:uppercase">Turns</div>', unsafe_allow_html=True)
         turns_slot = st.empty()
         turns_slot.markdown(f'<div style="font-family:IBM Plex Mono,monospace;font-size:16px;color:#6b7a94">{st.session_state.turn_count}</div>', unsafe_allow_html=True)
-    with tb5:
-        auto_lbl = "⏸ PAUSE" if st.session_state.auto_advance else "▶ AUTO"
-        if st.button(auto_lbl, key="toggle_auto"):
-            st.session_state.auto_advance = not st.session_state.auto_advance
-            log.info(f"Auto-advance {'ON' if st.session_state.auto_advance else 'OFF'}")
-            st.rerun()
+    # with tb5:
+    #     auto_lbl = "⏸ PAUSE" if st.session_state.auto_advance else "▶ AUTO"
+    #     if st.button(auto_lbl, key="toggle_auto"):
+    #         st.session_state.auto_advance = not st.session_state.auto_advance
+    #         log.info(f"Auto-advance {'ON' if st.session_state.auto_advance else 'OFF'}")
+    #         st.rerun()
     with tb6:
         if st.button("■  END CALL", key="end_call"):
             log.info(f"Call ended — {st.session_state.turn_count} turns, {elapsed()}")
