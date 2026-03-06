@@ -30,9 +30,8 @@
 ### Installation
 
 ```bash
-git clone <repo-url>
-cd whispa
-cd verfinal
+git clone [<repo-url>](https://github.com/rohanmatt/Audio)
+cd Audio
 pip install -r requirements.txt
 ```
 
